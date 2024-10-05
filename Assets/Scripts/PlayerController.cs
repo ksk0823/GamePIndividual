@@ -6,14 +6,20 @@ public class PlayerController : MonoBehaviour
 {
     public float speed;
     public float mouseRotationSpeed;
-
+    public List<GameObject> bulletPrefabs = new List<GameObject>();
+    public GameObject shootTarget;
+    
     private float hAxis;
     private float vAxis;
+    private int currentBulletIndex = 0;
     
-    bool isWalk;
-    bool isRoll;
-    bool isOpen;
+    private bool isWalk;
+    private bool isRoll;
+    private bool isOpen;
     private bool isClose;
+    private bool isShooting;
+    private bool sDown1;
+    private bool sDown2;
     
     Animator anim;
 
@@ -42,6 +48,8 @@ public class PlayerController : MonoBehaviour
         Turn();
         Roll();
         Close();
+        SwapBullet();
+        Shoot();
     }
 
     void CheckInput()
@@ -50,6 +58,9 @@ public class PlayerController : MonoBehaviour
         vAxis = Input.GetAxisRaw("Vertical");
         isRoll = Input.GetKeyDown(KeyCode.Space);
         isClose = Input.GetKeyDown(KeyCode.C);
+        isShooting = Input.GetKeyDown(KeyCode.Mouse0);
+        sDown1 = Input.GetButtonDown("Swap1");
+        sDown2 = Input.GetButtonDown("Swap2");
     }
 
     void Move()
@@ -105,8 +116,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void SwapBullet()
+    {
+        if (sDown1)
+        {
+            currentBulletIndex = 0;
+            sDown2 = false;
+        } else if (sDown2)
+        {
+            currentBulletIndex = 1;
+            sDown1 = false;
+        }
+    }
+
     void Shoot()
     {
-        
+        if (isShooting)
+        {
+            GameObject bulletClone = Instantiate(bulletPrefabs[currentBulletIndex]);
+            bulletClone.transform.position = shootTarget.transform.position;
+            bulletClone.transform.rotation = shootTarget.transform.rotation;
+        }
     }
 }
