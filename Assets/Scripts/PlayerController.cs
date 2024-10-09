@@ -133,9 +133,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isShooting)
         {
-            GameObject bulletClone = Instantiate(bulletPrefabs[currentBulletIndex]);
-            bulletClone.transform.position = shootTarget.transform.position;
-            bulletClone.transform.rotation = shootTarget.transform.rotation;
+            GameObject bulletClone = Instantiate(bulletPrefabs[currentBulletIndex], shootTarget.transform.position, shootTarget.transform.rotation);
         }
     }
 }
