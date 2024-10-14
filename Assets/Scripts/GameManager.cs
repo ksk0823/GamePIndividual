@@ -11,10 +11,9 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     
     public GameObject _UIObject;
-    public GameObject EnemySpawner;
     
-    private int HP = 10;
-    private int goal = 5;
+    private int HP = 30;
+    private int goal = 30;
     private TextMeshProUGUI _UIText;
 
     private void Awake()
@@ -27,6 +26,9 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Duplicated GameManager.");
         }
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Start is called before the first frame update

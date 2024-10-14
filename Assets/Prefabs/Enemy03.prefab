@@ -348,7 +348,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5555990472132810241}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 105, y: 0.5, z: 60}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
@@ -357,7 +357,7 @@ Transform:
   - {fileID: 1322462572175306945}
   - {fileID: 2892461109547924839}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!95 &7635728106696311584
 Animator:
   serializedVersion: 7
@@ -415,8 +415,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 358a68d554fafc743b67621c7b092caa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
-  destroyDelay: 5
+  speed: 15
+  destroyDelay: 30
+  damage: 3
+  target: {fileID: 0}
 --- !u!54 &-1769465880849154988
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -439,11 +441,11 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
-  m_CollisionDetection: 2
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &5824304629128814800
 GameObject:
   m_ObjectHideFlags: 0

@@ -676,8 +676,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4677597224840009569}
   - component: {fileID: 8619668813536355863}
-  - component: {fileID: 8906989519312835324}
   - component: {fileID: 1146846406062864510}
+  - component: {fileID: 8906989519312835324}
   - component: {fileID: 1114256653953217980}
   m_Layer: 9
   m_Name: Enemy01
@@ -694,8 +694,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8625403552820346870}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 110, y: 0, z: 60}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 110, y: 0.5, z: 60}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -703,7 +703,7 @@ Transform:
   - {fileID: 4934528035488277009}
   - {fileID: 6549310733663565938}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!95 &8619668813536355863
 Animator:
   serializedVersion: 7
@@ -726,6 +726,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1146846406062864510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8625403552820346870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 358a68d554fafc743b67621c7b092caa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 15
+  destroyDelay: 30
+  damage: 1
+  target: {fileID: 0}
 --- !u!136 &8906989519312835324
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -749,20 +765,6 @@ CapsuleCollider:
   m_Height: 0.73960495
   m_Direction: 1
   m_Center: {x: -0.0075883865, y: 0.33836842, z: 0.00768137}
---- !u!114 &1146846406062864510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8625403552820346870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 358a68d554fafc743b67621c7b092caa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  destroyDelay: 5
 --- !u!54 &1114256653953217980
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -785,11 +787,11 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
-  m_CollisionDetection: 2
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &8696212800964821288
 GameObject:
   m_ObjectHideFlags: 0

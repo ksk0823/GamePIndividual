@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour
     public float speed;
     public float destroyDelay;
     public int damage;
-    public GameObject target;
+    public Transform target;
 
     private Rigidbody rigid;
 
@@ -26,18 +26,27 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // 랜덤한 방향 설정
-        moveDirection = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f)).normalized;
+        target = GameObject.FindGameObjectWithTag("Target").transform;
+        
         Destroy(gameObject, destroyDelay);
     }
 
     void FixedUpdate()
     {
+        FreezeVelocity();
+        MoveToTarget();
         // 물리 기반 이동
-        rigid.MovePosition(transform.position + moveDirection * speed * Time.fixedDeltaTime);
+        //rigid.MovePosition(transform.position + moveDirection * speed * Time.fixedDeltaTime);
     }
 
-
+    void MoveToTarget()
+    {
+        if (!isDead && target != null)
+        {
+            Vector3 direction = (target.position - transform.position).normalized;
+            rigid.velocity = direction * speed;
+        }
+    }
 
     void OnCollisionEnter(Collision collision)
     {
@@ -45,18 +54,40 @@ public class EnemyController : MonoBehaviour
         {
             if (!isDead)
             {
+                Vector3 reactVec = transform.position - collision.transform.position;
                 isDead = true;
                 GameManager.instance.DecreaseGoal();
-                Destroy(this.gameObject);
+                StartCoroutine(OnDamage(reactVec));
             }
         }
 
-        if (collision.gameObject.CompareTag("Base"))
+        if (collision.gameObject.CompareTag("Target"))
         {
             GameManager.instance.DecreaseHP(damage);
             Destroy(this.gameObject);
         }
     }
     
+    IEnumerator OnDamage(Vector3 reactDirection)
+    {
+        isDead = true;
+        yield return new WaitForSeconds(0.1f);
+        
+        reactDirection = reactDirection.normalized;
+        reactDirection += Vector3.up;
+        rigid.AddForce(reactDirection * 5, ForceMode.Impulse);
+        
+        Destroy(this, 5);
+        
+    }
+    
+    void FreezeVelocity()
+    {
+        if (!isDead)
+        {
+            rigid.angularVelocity = Vector3.zero;
+        }
+        
+    }
 
 }

@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private bool isShooting;
     private bool sDown1;
     private bool sDown2;
+    private bool isBorder;
     
     Animator anim;
     private Rigidbody rigid;
@@ -59,6 +60,8 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+        FreezeRotation();
+        StopToWall();
     }
 
     void CheckInput()
@@ -85,18 +88,17 @@ public class PlayerController : MonoBehaviour
         // 플레이어의 현재 바라보는 방향으로 이동
         Vector3 moveDirection = transform.forward * moveVec.z + transform.right * moveVec.x;
         //transform.position += moveDirection * speed * Time.deltaTime;
-        rigid.MovePosition(transform.position + moveDirection * speed * Time.fixedDeltaTime);
+        if (!isBorder)
+        {
+            rigid.MovePosition(transform.position + moveDirection * speed * Time.fixedDeltaTime);
+        }
         anim.SetBool("Walk_Anim", moveVec != Vector3.zero);
     }
 
     void Turn()
     {
-        //키보드 회전
-        //transform.LookAt(transform.position + moveVec);
-        
         //마우스 회전
         float mouseX = Input.GetAxis("Mouse X") * mouseRotationSpeed;
-        //xRotate = Mathf.Clamp(xRotate + xRotateSize, -45, 45);
         transform.Rotate(0, mouseX * Time.deltaTime, 0);
     }
 
@@ -149,5 +151,15 @@ public class PlayerController : MonoBehaviour
         {
             GameObject bulletClone = Instantiate(bulletPrefabs[currentBulletIndex], shootTarget.transform.position, shootTarget.transform.rotation);
         }
+    }
+
+    void FreezeRotation()
+    {
+        rigid.angularVelocity = Vector3.zero;
+    }
+
+    void StopToWall()
+    {
+        isBorder = Physics.Raycast(transform.position, transform.forward, 5, LayerMask.GetMask("Wall"));
     }
 }
