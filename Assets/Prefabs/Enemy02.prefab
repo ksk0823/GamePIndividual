@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1056122499949339479}
   - component: {fileID: 6405025556833411276}
   - component: {fileID: 5364445793793480837}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Kid_ghost_v1:Devil_head1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6810479808523461241}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Kid_ghost_v1:Devil_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 4376212422457902291}
   - component: {fileID: 7891583265558267785}
   - component: {fileID: 1207808606894243838}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy02
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  destroyDelay: 4
+  destroyDelay: 5
 --- !u!54 &1207808606894243838
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -251,7 +251,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3554571721572145328}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Kid_ghost_v1:joint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 8043683924589063015}
   - component: {fileID: 905463406978077608}
   - component: {fileID: 3637844925513879572}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Kid_ghost_v1:Axe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -368,7 +368,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1726251645126916672}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Kid_ghost_v1:joint5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 5448614632774981093}
   - component: {fileID: 3005148138112418922}
   - component: {fileID: 7265193217042838718}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Kid_ghost_v1:Devil_head2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -488,7 +488,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8215266368714129798}
   - component: {fileID: 5259040199654692102}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Kid_ghost_v1:Ghost_Kid_S1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -579,7 +579,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2879793525930371845}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: JNTs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -612,7 +612,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7508619710159143741}
   - component: {fileID: 6526126186633798450}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Kid_ghost_v1:Ghost_Kid_S2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -703,7 +703,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1496415265398406833}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Kid_ghost_v1:joint4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -735,7 +735,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7669815021693235944}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Kid_ghost_v1:joint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -769,7 +769,7 @@ GameObject:
   - component: {fileID: 4338484658700757107}
   - component: {fileID: 5830242424648114889}
   - component: {fileID: 8364347142187817769}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Kid_ghost_v1:Witch_Hat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -853,7 +853,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1692644263968618312}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Kid_ghost_v1:joint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

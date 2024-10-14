@@ -27,12 +27,6 @@ public class EnemySpawner : MonoBehaviour
         Invoke("CancelInvoke", endTime);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void Spawn()
     {
         System.Random rand = new System.Random();

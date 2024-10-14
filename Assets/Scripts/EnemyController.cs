@@ -9,11 +9,12 @@ public class EnemyController : MonoBehaviour
 {
     public float speed;
     public float destroyDelay;
+    public int damage;
+    public GameObject target;
 
     private Rigidbody rigid;
 
-    
-
+    private bool isDead = false;
     private Vector3 moveDirection;
 
     private void Awake()
@@ -35,15 +36,27 @@ public class EnemyController : MonoBehaviour
         // 물리 기반 이동
         rigid.MovePosition(transform.position + moveDirection * speed * Time.fixedDeltaTime);
     }
-    
-    /*
+
+
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            Debug.Log(collision.gameObject.name);
+            if (!isDead)
+            {
+                isDead = true;
+                GameManager.instance.DecreaseGoal();
+                Destroy(this.gameObject);
+            }
+        }
+
+        if (collision.gameObject.CompareTag("Base"))
+        {
+            GameManager.instance.DecreaseHP(damage);
             Destroy(this.gameObject);
         }
     }
-    */
+    
+
 }

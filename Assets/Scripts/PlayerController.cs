@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,12 +23,15 @@ public class PlayerController : MonoBehaviour
     private bool sDown2;
     
     Animator anim;
+    private Rigidbody rigid;
 
+    private Vector3 moveDir;
     private Vector3 moveVec;
     Vector3 rot = Vector3.zero;
     void Awake()
     {
         anim = gameObject.GetComponent<Animator>();
+        rigid = gameObject.GetComponent<Rigidbody>();
         gameObject.transform.eulerAngles = rot;
     }
     
@@ -44,12 +48,17 @@ public class PlayerController : MonoBehaviour
         //gameObject.transform.eulerAngles = rot;
         
         CheckInput();
-        Move();
+        //Move();
         Turn();
         Roll();
         Close();
         SwapBullet();
         Shoot();
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
     }
 
     void CheckInput()
@@ -65,6 +74,7 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
+
         moveVec = new Vector3(hAxis, 0, vAxis).normalized;
         
         if (isRoll || isClose)
@@ -72,18 +82,22 @@ public class PlayerController : MonoBehaviour
             moveVec = Vector3.zero;
         }
 
-        transform.position += moveVec * speed * Time.deltaTime;
+        // 플레이어의 현재 바라보는 방향으로 이동
+        Vector3 moveDirection = transform.forward * moveVec.z + transform.right * moveVec.x;
+        //transform.position += moveDirection * speed * Time.deltaTime;
+        rigid.MovePosition(transform.position + moveDirection * speed * Time.fixedDeltaTime);
         anim.SetBool("Walk_Anim", moveVec != Vector3.zero);
     }
 
     void Turn()
     {
         //키보드 회전
-        transform.LookAt(transform.position + moveVec);
+        //transform.LookAt(transform.position + moveVec);
         
         //마우스 회전
-        float mouseX = Input.GetAxis("Mouse X");
-        transform.Rotate(0, mouseX * mouseRotationSpeed, 0);
+        float mouseX = Input.GetAxis("Mouse X") * mouseRotationSpeed;
+        //xRotate = Mathf.Clamp(xRotate + xRotateSize, -45, 45);
+        transform.Rotate(0, mouseX * Time.deltaTime, 0);
     }
 
     void Roll()
