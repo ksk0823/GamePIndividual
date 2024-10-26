@@ -7,11 +7,13 @@ public class Target : MonoBehaviour
 {
     public int maxHp = 15;
     private MeshRenderer mesh;
+    public GameObject electricCapsule;
     [SerializeField]
     private int currentHp;
 
     private void Awake()
     {
+        electricCapsule.SetActive(false);
         mesh = GetComponent<MeshRenderer>();
     }
 
@@ -35,8 +37,10 @@ public class Target : MonoBehaviour
 
     IEnumerator OnDamage()
     {
+        electricCapsule.SetActive(true);
         mesh.material.color = Color.red;
         yield return new WaitForSeconds(0.5f);
         mesh.material.color = Color.white;
+        electricCapsule.SetActive(false);
     }
 }
