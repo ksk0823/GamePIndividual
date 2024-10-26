@@ -48,7 +48,6 @@ public class Bullet : MonoBehaviour
         {
             penetrationCount--;
             Debug.Log(collision.gameObject.name + " " + this.gameObject);
-            Destroy(collision.gameObject);
             Debug.Log("Penetration Count: " + penetrationCount + ", " + this.gameObject);
 
             rigid.velocity *= 0.9f;

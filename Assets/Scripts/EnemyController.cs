@@ -22,7 +22,6 @@ public class EnemyController : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
         
     }
-
     // Start is called before the first frame update
     void Start()
     {
