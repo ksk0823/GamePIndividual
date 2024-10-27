@@ -1,3 +1,4 @@
 # Game Programming - Repository of individual assignments
 
-HW4: Improving Shooting Game Using Physics
+HW5: Improving Game AI and Visual Effects
+
