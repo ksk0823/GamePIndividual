@@ -84,9 +84,6 @@
             "m_Id": "d429e9806f5248d19ee1c5e24b8d8817"
         },
         {
-            "m_Id": "f04acd61a0634e97a9a200b6bde77901"
-        },
-        {
             "m_Id": "64285466361e4186ad30e4ae521c7bcb"
         }
     ],
@@ -2061,19 +2058,6 @@
 
 {
     "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
-    "m_ObjectId": "b20a37c59d1f4355b4a1575cf6f4d6a3",
-    "m_Id": 0,
-    "m_DisplayName": "Out",
-    "m_SlotType": 1,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "Out",
-    "m_StageCapability": 3,
-    "m_BareResource": false
-}
-
-{
-    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.RemapNode",
     "m_ObjectId": "b2acc6e09ad54fcc99e3f0fa7976fc88",
     "m_Group": {
@@ -2406,10 +2390,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -607.9998779296875,
-            "y": 455.9999694824219,
-            "width": 207.99993896484376,
-            "height": 124.99996948242188
+            "x": -526.0000610351563,
+            "y": 512.0,
+            "width": 208.00003051757813,
+            "height": 124.99993896484375
         }
     },
     "m_Slots": [
@@ -2663,43 +2647,6 @@
     "m_PreviewMode": 0,
     "m_CustomColors": {
         "m_SerializableColors": []
-    }
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Texture2DAssetNode",
-    "m_ObjectId": "f04acd61a0634e97a9a200b6bde77901",
-    "m_Group": {
-        "m_Id": ""
-    },
-    "m_Name": "Texture 2D Asset",
-    "m_DrawState": {
-        "m_Expanded": true,
-        "m_Position": {
-            "serializedVersion": "2",
-            "x": -818.9999389648438,
-            "y": -483.0,
-            "width": 110.0,
-            "height": 34.0
-        }
-    },
-    "m_Slots": [
-        {
-            "m_Id": "b20a37c59d1f4355b4a1575cf6f4d6a3"
-        }
-    ],
-    "synonyms": [],
-    "m_Precision": 0,
-    "m_PreviewExpanded": true,
-    "m_DismissedVersion": 0,
-    "m_PreviewMode": 0,
-    "m_CustomColors": {
-        "m_SerializableColors": []
-    },
-    "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"c0aa9f00c18fd8f40babb473766f37eb\",\"type\":3}}",
-        "m_Guid": ""
     }
 }
 

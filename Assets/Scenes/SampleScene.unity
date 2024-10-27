@@ -10560,7 +10560,7 @@ MonoBehaviour:
   RangeObject: {fileID: 2133455802}
   startTime: 1
   endTime: 30
-  spawnRate: 0.9
+  spawnRate: 0.8
 --- !u!4 &1880500919
 Transform:
   m_ObjectHideFlags: 0

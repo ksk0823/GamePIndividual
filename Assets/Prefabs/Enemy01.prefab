@@ -796,9 +796,6 @@ MonoBehaviour:
   target: {fileID: 0}
   attackRange: 8
   damage: 1
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 2048
   bulletPrefab: {fileID: 977437699951848092, guid: 1c28fd94f0611e84d994d4b0e8eb0c3e,
     type: 3}
   ashParticle: {fileID: 0}
