@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class EnemyFSM : MonoBehaviour
 {
+    public AudioClip dyingSound;
+    
     public enum MonsterState
     {
         Idle, ChaseCar, SpeedUp, Attack, Death

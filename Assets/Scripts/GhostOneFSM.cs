@@ -223,7 +223,7 @@ public class GhostOneFSM : EnemyFSM
     private void EnterDeath()
     {
         agent.enabled = false;  // 사망 시 이동 멈춤
-        
+        GameManager.instance.playAudio(dyingSound);
         
         // 파티클 시스템 실행
         if (ashParticle != null)

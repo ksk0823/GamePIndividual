@@ -791,6 +791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e658e50eba8014149a8d002df6b97f5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dyingSound: {fileID: 8300000, guid: 3ffec5f3319ab50488303ac2cb3c8267, type: 3}
   startState: 0
   currentState: 0
   target: {fileID: 0}

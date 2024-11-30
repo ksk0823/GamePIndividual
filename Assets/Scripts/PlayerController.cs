@@ -22,6 +22,13 @@ public class PlayerController : MonoBehaviour
     private bool sDown1;
     private bool sDown2;
     private bool isBorder;
+    private bool pressedEsc;
+    public bool pauseGame;
+
+    [Header("Sounds")]
+    public AudioClip shootOne;
+    public AudioClip shootTwo;
+    public AudioClip swapSound;
     
     Animator anim;
     private Rigidbody rigid;
@@ -34,17 +41,16 @@ public class PlayerController : MonoBehaviour
         anim = gameObject.GetComponent<Animator>();
         rigid = gameObject.GetComponent<Rigidbody>();
         gameObject.transform.eulerAngles = rot;
-    }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        pauseGame = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (pauseGame)
+        {
+            return;
+        }
         //CheckKey();
         //gameObject.transform.eulerAngles = rot;
         
@@ -55,6 +61,7 @@ public class PlayerController : MonoBehaviour
         Close();
         SwapBullet();
         Shoot();
+        CheckPause();
     }
 
     private void FixedUpdate()
@@ -73,6 +80,7 @@ public class PlayerController : MonoBehaviour
         isShooting = Input.GetKeyDown(KeyCode.Mouse0);
         sDown1 = Input.GetButtonDown("Swap1");
         sDown2 = Input.GetButtonDown("Swap2");
+        pressedEsc = Input.GetKeyDown(KeyCode.Escape);
     }
 
     void Move()
@@ -136,10 +144,12 @@ public class PlayerController : MonoBehaviour
     {
         if (sDown1)
         {
+            GameManager.instance.playAudio(swapSound);
             currentBulletIndex = 0;
             sDown2 = false;
         } else if (sDown2)
         {
+            GameManager.instance.playAudio(swapSound);
             currentBulletIndex = 1;
             sDown1 = false;
         }
@@ -149,6 +159,14 @@ public class PlayerController : MonoBehaviour
     {
         if (isShooting)
         {
+            if (currentBulletIndex == 0)
+            {
+                GameManager.instance.playAudio(shootOne);
+            }
+            else
+            {
+                GameManager.instance.playAudio(shootTwo);
+            }
             GameObject bulletClone = Instantiate(bulletPrefabs[currentBulletIndex], shootTarget.transform.position, shootTarget.transform.rotation);
         }
     }
@@ -162,4 +180,16 @@ public class PlayerController : MonoBehaviour
     {
         isBorder = Physics.Raycast(transform.position, transform.forward, 5, LayerMask.GetMask("Wall"));
     }
+
+    void CheckPause()
+    {
+        if (pressedEsc)
+        {
+            GameManager.instance.playAudio(swapSound);
+            pauseGame = true;
+            GameManager.instance.pauseGame();
+        }
+    }
+    
+    
 }

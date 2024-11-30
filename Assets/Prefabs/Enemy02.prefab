@@ -221,6 +221,7 @@ MonoBehaviour:
   destroyDelay: 30
   damage: 2
   target: {fileID: 0}
+  dyingSound: {fileID: 0}
 --- !u!54 &1207808606894243838
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -282,14 +283,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e658e50eba8014149a8d002df6b97f5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dyingSound: {fileID: 8300000, guid: 3ffec5f3319ab50488303ac2cb3c8267, type: 3}
   startState: 0
   currentState: 0
   target: {fileID: 0}
   attackRange: 7
   damage: 1
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 2048
   bulletPrefab: {fileID: 977437699951848092, guid: 1c28fd94f0611e84d994d4b0e8eb0c3e,
     type: 3}
   ashParticle: {fileID: 0}

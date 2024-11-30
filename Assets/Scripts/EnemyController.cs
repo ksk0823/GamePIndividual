@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     public float destroyDelay;
     public int damage;
     public Transform target;
+    public AudioClip dyingSound;
 
     private Rigidbody rigid;
 
@@ -63,6 +64,7 @@ public class EnemyController : MonoBehaviour
         if (collision.gameObject.CompareTag("Target"))
         {
             GameManager.instance.DecreaseHP(damage);
+            GameManager.instance.playAudio(dyingSound);
             Destroy(this.gameObject);
         }
     }
@@ -75,6 +77,7 @@ public class EnemyController : MonoBehaviour
         reactDirection = reactDirection.normalized;
         reactDirection += Vector3.up;
         rigid.AddForce(reactDirection * 5, ForceMode.Impulse);
+        
         
         Destroy(this, 5);
         

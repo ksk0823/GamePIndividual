@@ -8,6 +8,7 @@ public class Target : MonoBehaviour
     public int maxHp = 15;
     private MeshRenderer mesh;
     public GameObject electricCapsule;
+    public AudioClip electricSound;
     [SerializeField]
     private int currentHp;
 
@@ -30,6 +31,7 @@ public class Target : MonoBehaviour
             int damage = other.gameObject.GetComponent<EnemyBullet>().index;
             currentHp-= damage; 
             GameManager.instance.DecreaseHP(damage);
+            GameManager.instance.playAudio(electricSound);
             Destroy(other.gameObject, 0.5f);
             StartCoroutine(OnDamage());
         }
