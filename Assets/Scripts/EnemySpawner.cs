@@ -12,7 +12,9 @@ public class EnemySpawner : MonoBehaviour
     public float startTime;
     public float endTime;
     public float spawnRate;
-
+    
+    public float cutsceneDuration = 7f; // 컷씬 길이 (초)
+    
     private BoxCollider rangeCollider;
 
     private void Awake()
@@ -22,6 +24,11 @@ public class EnemySpawner : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
+    {
+        Invoke("StartSpawn", cutsceneDuration);
+    }
+
+    void StartSpawn()
     {
         InvokeRepeating("Spawn", startTime, spawnRate);
         Invoke("CancelInvoke", endTime);

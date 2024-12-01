@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -13,7 +14,8 @@ public class PlayerController : MonoBehaviour
     private float hAxis;
     private float vAxis;
     private int currentBulletIndex = 0;
-    
+
+    private bool endCutScene;
     private bool isWalk;
     private bool isRoll;
     private bool isOpen;
@@ -24,6 +26,10 @@ public class PlayerController : MonoBehaviour
     private bool isBorder;
     private bool pressedEsc;
     public bool pauseGame;
+    
+    [Header("CutScene")]
+    public float cutsceneDuration = 7f; // 컷씬 길이 (초)
+    public CinemachineVirtualCamera playerCamera;   // 플레이어 Virtual Camera
 
     [Header("Sounds")]
     public AudioClip shootOne;
@@ -42,12 +48,19 @@ public class PlayerController : MonoBehaviour
         rigid = gameObject.GetComponent<Rigidbody>();
         gameObject.transform.eulerAngles = rot;
         pauseGame = false;
+        Invoke("EnablePlayerControl", cutsceneDuration);
+        Invoke("OpenPlayer", (cutsceneDuration - 3f));
     }
 
     // Update is called once per frame
     void Update()
     {
         if (pauseGame)
+        {
+            return;
+        }
+
+        if (!endCutScene)
         {
             return;
         }
@@ -69,6 +82,17 @@ public class PlayerController : MonoBehaviour
         Move();
         FreezeRotation();
         StopToWall();
+    }
+    
+    void EnablePlayerControl()
+    {
+        endCutScene = true;
+        playerCamera.Priority = 30;
+    }
+
+    void OpenPlayer()
+    {
+        anim.SetBool("Open_Anim", true);
     }
 
     void CheckInput()
